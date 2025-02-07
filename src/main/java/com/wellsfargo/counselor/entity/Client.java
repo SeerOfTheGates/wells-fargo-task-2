@@ -29,8 +29,8 @@ public class Client {
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "advisorId", nullable = false)
-    private long advisorID;
+
+    private Advisor advisor;
 
     protected Client(){}
 
@@ -40,7 +40,7 @@ public class Client {
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.advisorID= advisor.getAdvisorId();
+        this.advisor= advisor;
 
     }
     public Long getClientId() {
@@ -87,11 +87,11 @@ public class Client {
         this.email = email;
     }
 
-    public long getAdvisorID() {
-        return advisorID;
+    public Advisor getAdvisor() {
+        return advisor;
     }
 
-    public void setAdvisorID(Advisor advisorID) {
-        this.advisorID = advisorID.getAdvisorId();
+    public void setAdvisorID(Advisor advisor) {
+        this.advisor = advisor;
     }
 }

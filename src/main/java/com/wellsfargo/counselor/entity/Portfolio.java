@@ -12,24 +12,24 @@ public class Portfolio {
     @Id
     @GeneratedValue()
     private long portfolioId;
-    @Column(nullable = false)
-    private long Client_ID;
+    @ManyToOne
+    private Client client;
 
     protected Portfolio(){}
 
-    public Portfolio(Client client_Id){
-        this.Client_ID = client_Id.getClientId();
+    public Portfolio(Client client){
+        this.client = client;
     }
 
     public long getPortfolioId() {
         return portfolioId;
     }
 
-    public long getClient_ID() {
-        return Client_ID;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClient_ID(Client client_ID) {
-        this.Client_ID = client_ID.getClientId();
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

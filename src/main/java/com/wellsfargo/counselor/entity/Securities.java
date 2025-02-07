@@ -19,14 +19,13 @@ public class Securities {
     private String purchaseDate;
 
     @Column(nullable = false)
-    private String purchasePrice;
+    private Float purchasePrice;
 
     @Column(nullable = false)
-    private String quantity;
+    private Float quantity;
 
     @ManyToOne
-    @JoinColumn(name = "advisor_id", nullable = false)
-    private long portfolio_ID;
+    private Portfolio portfolio;
 
     public String getName() {
         return name;
@@ -52,19 +51,19 @@ public class Securities {
         this.purchaseDate = purchaseDate;
     }
 
-    public String getPurchasePrice() {
+    public Float getPurchasePrice() {
         return purchasePrice;
     }
 
-    public void setPurchasePrice(String purchasePrice) {
+    public void setPurchasePrice(Float purchasePrice) {
         this.purchasePrice = purchasePrice;
     }
 
-    public String getQuantity() {
+    public Float getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Float quantity) {
         this.quantity = quantity;
     }
 
@@ -72,11 +71,11 @@ public class Securities {
         return securitiesId;
     }
 
-    public long getPortfolio_ID() {
-        return portfolio_ID;
+    public Portfolio getPortfolio() {
+        return portfolio;
     }
 
-    public void setPortfolio_ID(Portfolio portfolio) {
-        this.portfolio_ID = portfolio.getPortfolioId();
+    public void setPortfolio(Portfolio portfolio) {
+        this.portfolio = portfolio;
     }
 }
